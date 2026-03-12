@@ -1,9 +1,9 @@
 Traceback (most recent call last):
   File "<frozen runpy>", line 198, in _run_module_as_main
   File "<frozen runpy>", line 88, in _run_code
-  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 176, in <module>
+  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 178, in <module>
     main()
-  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 168, in main
+  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 170, in main
     from vllm.entrypoints.cli.main import main as vllm_main
   File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/__init__.py", line 14, in <module>
     import vllm.env_override  # noqa: F401
@@ -28,10 +28,9 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^^^^
   File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_prims/__init__.py", line 362, in _make_prim
     prim_backend_select_impl.impl(name, _backend_select_impl)
-  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 67, in _fixed_lib_impl
+  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 69, in _fixed_lib_impl
     return _orig_lib_impl(self, op_name, fn, dispatch_key=dispatch_key, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/library.py", line 333, in impl
-    key = self.ns + "/" + name.split("::")[-1] + "/" + dispatch_key
-          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~
-TypeError: can only concatenate str (not "NoneType") to str
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/library.py", line 364, in impl
+    self.m.impl(
+RuntimeError: impl("inductor_seed", ...): Explicitly provided dispatch key (CPU) is inconsistent with the dispatch key of the enclosing TORCH_LIBRARY_IMPL block (BackendSelect).  Please declare a separate TORCH_LIBRARY_IMPL block for this dispatch key and move your impl() there.  (Error occurred while processing TORCH_LIBRARY_IMPL block at /root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_prims/__init__.py:39)
