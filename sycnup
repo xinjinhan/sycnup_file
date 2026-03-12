@@ -1,36 +1,14 @@
-RROR 03-12 20:19:31 [config.py:32] Failed to import Triton kernels. Please make sure your triton version is compatible. Error: cannot import name 'autotune' from 'triton.runtime' (unknown location)
+[vllm-ascend] CPU Simulation Mode: Injecting mocks...
 Traceback (most recent call last):
   File "<frozen runpy>", line 198, in _run_module_as_main
   File "<frozen runpy>", line 88, in _run_code
-  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 126, in <module>
+  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 141, in <module>
     main()
-  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 118, in main
-    from vllm.entrypoints.cli.main import main as vllm_main
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/entrypoints/cli/__init__.py", line 4, in <module>
-    from vllm.entrypoints.cli.benchmark.serve import BenchmarkServingSubcommand
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/entrypoints/cli/benchmark/serve.py", line 5, in <module>
-    from vllm.benchmarks.serve import add_cli_args, main
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/benchmarks/serve.py", line 40, in <module>
-    from vllm.benchmarks.datasets import SampleRequest, add_dataset_parser, get_samples
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/benchmarks/datasets.py", line 38, in <module>
-    from vllm.lora.utils import get_adapter_absolute_path
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/lora/utils.py", line 22, in <module>
-    from vllm.lora.layers import (
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/lora/layers/__init__.py", line 14, in <module>
-    from vllm.lora.layers.fused_moe import FusedMoE3DWithLoRA, FusedMoEWithLoRA
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/lora/layers/fused_moe.py", line 18, in <module>
-    from vllm.model_executor.layers.fused_moe import FusedMoE
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/model_executor/layers/fused_moe/__init__.py", line 11, in <module>
-    from vllm.model_executor.layers.fused_moe.fused_moe_method_base import (
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/model_executor/layers/fused_moe/fused_moe_method_base.py", line 13, in <module>
-    from vllm.model_executor.layers.fused_moe.modular_kernel import (
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/model_executor/layers/fused_moe/modular_kernel.py", line 19, in <module>
-    from vllm.model_executor.layers.fused_moe.utils import (
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/model_executor/layers/fused_moe/utils.py", line 9, in <module>
-    from vllm.model_executor.layers.quantization.utils.fp8_utils import (
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/model_executor/layers/quantization/utils/fp8_utils.py", line 17, in <module>
-    from vllm.model_executor.layers.quantization.input_quant_fp8 import QuantFP8
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/model_executor/layers/quantization/input_quant_fp8.py", line 16, in <module>
-    _FP8_FINFO = torch.finfo(_FP8_DTYPE)
-                 ^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: finfo(): argument 'type' (position 1) must be torch.dtype, not Mock
+  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 130, in main
+    inject_cpu_simulation_mocks()
+  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 62, in inject_cpu_simulation_mocks
+    torch_npu_mock.float8_e4m3fnUZ = torch.float8_e4m3fnUZ
+                                     ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/__init__.py", line 2757, in __getattr__
+    raise AttributeError(f"module '{__name__}' has no attribute '{name}'")
+AttributeError: module 'torch' has no attribute 'float8_e4m3fnUZ'
