@@ -1,9 +1,9 @@
 Traceback (most recent call last):
   File "<frozen runpy>", line 198, in _run_module_as_main
   File "<frozen runpy>", line 88, in _run_code
-  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 106, in <module>
+  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 119, in <module>
     main()
-  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 98, in main
+  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 111, in main
     from vllm.entrypoints.cli.main import main as vllm_main
   File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/entrypoints/cli/__init__.py", line 3, in <module>
     from vllm.entrypoints.cli.benchmark.latency import BenchmarkLatencySubcommand
@@ -11,27 +11,6 @@ Traceback (most recent call last):
     from vllm.benchmarks.latency import add_cli_args, main
   File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/benchmarks/latency.py", line 16, in <module>
     from vllm.engine.arg_utils import EngineArgs
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/engine/arg_utils.py", line 36, in <module>
-    from vllm.config import (
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/config/__init__.py", line 25, in <module>
-    from vllm.config.parallel import EPLBConfig, ParallelConfig
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/config/parallel.py", line 16, in <module>
-    from vllm.model_executor.layers.batch_invariant import (
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/model_executor/__init__.py", line 4, in <module>
-    from vllm.model_executor.parameter import BasevLLMParameter, PackedvLLMParameter
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/model_executor/parameter.py", line 11, in <module>
-    from vllm.distributed import (
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/distributed/__init__.py", line 4, in <module>
-    from .communication_op import *
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/distributed/communication_op.py", line 9, in <module>
-    from .parallel_state import get_tp_group
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 250, in <module>
-    direct_register_custom_op(
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/utils/torch_utils.py", line 646, in direct_register_custom_op
-    my_lib.impl(op_name, op_func, dispatch_key=dispatch_key)
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/library.py", line 364, in impl
-    self.m.impl(
-TypeError: impl(): incompatible function arguments. The following argument types are supported:
-    1. (self: object, name: str, dispatch: c10::DispatchKey, func: object, with_keyset: bool = False) -> None
-
-Invoked with: <torch._C._DispatchModule object at 0x4001b49567f0>, 'all_reduce', <MagicMock name='mock.current_platform.dispatch_key' id='70378670833424'>, <function all_reduce at 0x40024fece840>, False
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/engine/arg_utils.py", line 83, in <module>
+    from vllm.platforms import CpuArchEnum, current_platform
+ImportError: cannot import name 'CpuArchEnum' from 'vllm.platforms' (unknown location)
