@@ -1,14 +1,2 @@
-[vllm-ascend] CPU Simulation Mode: Injecting mocks...
+ERROR 03-12 21:01:00 [config.py:32] Failed to import Triton kernels. Please make sure your triton version is compatible. Error: No module named 'triton.runtime.jit'; 'triton.runtime' is not a package
 Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 141, in <module>
-    main()
-  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 130, in main
-    inject_cpu_simulation_mocks()
-  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 62, in inject_cpu_simulation_mocks
-    torch_npu_mock.float8_e4m3fnUZ = torch.float8_e4m3fnUZ
-                                     ^^^^^^^^^^^^^^^^^^^^^
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/__init__.py", line 2757, in __getattr__
-    raise AttributeError(f"module '{__name__}' has no attribute '{name}'")
-AttributeError: module 'torch' has no attribute 'float8_e4m3fnUZ'
