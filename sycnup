@@ -1,53 +1,37 @@
 Traceback (most recent call last):
   File "<frozen runpy>", line 198, in _run_module_as_main
   File "<frozen runpy>", line 88, in _run_code
-  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 205, in <module>
+  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 176, in <module>
     main()
-  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 197, in main
+  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 168, in main
     from vllm.entrypoints.cli.main import main as vllm_main
   File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/__init__.py", line 14, in <module>
     import vllm.env_override  # noqa: F401
     ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/env_override.py", line 24, in <module>
-    torch._inductor.config.compile_threads = 1
-    ^^^^^^^^^^^^^^^
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/__init__.py", line 2755, in __getattr__
-    return importlib.import_module(f".{name}", __name__)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/__init__.py", line 11, in <module>
-    from .standalone_compile import CompiledArtifact  # noqa: TC001
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/standalone_compile.py", line 12, in <module>
-    from torch._dynamo.utils import dynamo_timed
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/__init__.py", line 13, in <module>
-    from . import (
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/aot_compile.py", line 15, in <module>
-    from . import convert_frame
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/convert_frame.py", line 57, in <module>
-    from torch._dynamo.symbolic_convert import TensorifyState
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/symbolic_convert.py", line 59, in <module>
-    from . import (
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/trace_rules.py", line 58, in <module>
-    from .variables import (
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/variables/__init__.py", line 19, in <module>
-    from .base import VariableTracker
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/variables/base.py", line 650, in <module>
-    from . import builder
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/variables/builder.py", line 94, in <module>
-    from ..side_effects import SideEffects
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/side_effects.py", line 34, in <module>
-    from torch._dynamo.variables.misc import AutogradFunctionContextVariable
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/variables/misc.py", line 61, in <module>
-    from .functions import NestedUserFunctionVariable, UserFunctionVariable
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/variables/functions.py", line 2143, in <module>
-    from torch._higher_order_ops.triton_kernel_wrap import (
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_higher_order_ops/triton_kernel_wrap.py", line 1019, in <module>
-    @triton_kernel_wrapper_mutation.py_impl(DispatchKey.CompositeExplicitAutograd)
-     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_ops.py", line 146, in inner
-    assert isinstance(k, DispatchKey)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/env_override.py", line 367, in <module>
+    from torch._inductor.codegen.wrapper import PythonWrapperCodegen
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/codegen/wrapper.py", line 43, in <module>
+    from ..debug import set_kernel_post_grad_provenance_tracing
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/debug.py", line 21, in <module>
+    from functorch.compile import draw_graph, get_aot_graph_name, get_graph_being_compiled
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/functorch/compile/__init__.py", line 2, in <module>
+    from torch._functorch.aot_autograd import (
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_functorch/aot_autograd.py", line 154, in <module>
+    from .partitioners import default_partition
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_functorch/partitioners.py", line 17, in <module>
+    import torch._inductor.inductor_prims
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/inductor_prims.py", line 64, in <module>
+    seed = make_prim(
+           ^^^^^^^^^^
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/inductor_prims.py", line 37, in make_prim
+    return _prims._make_prim(
+           ^^^^^^^^^^^^^^^^^^
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_prims/__init__.py", line 362, in _make_prim
+    prim_backend_select_impl.impl(name, _backend_select_impl)
+  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 67, in _fixed_lib_impl
+    return _orig_lib_impl(self, op_name, fn, dispatch_key=dispatch_key, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/library.py", line 333, in impl
+    key = self.ns + "/" + name.split("::")[-1] + "/" + dispatch_key
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+TypeError: can only concatenate str (not "NoneType") to str
