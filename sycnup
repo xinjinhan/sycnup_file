@@ -1,9 +1,9 @@
 Traceback (most recent call last):
   File "<frozen runpy>", line 198, in _run_module_as_main
   File "<frozen runpy>", line 88, in _run_code
-  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 180, in <module>
+  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 199, in <module>
     main()
-  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 172, in main
+  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 191, in main
     from vllm.entrypoints.cli.main import main as vllm_main
   File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/__init__.py", line 14, in <module>
     import vllm.env_override  # noqa: F401
@@ -28,24 +28,18 @@ Traceback (most recent call last):
     from . import convert_frame
   File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/convert_frame.py", line 57, in <module>
     from torch._dynamo.symbolic_convert import TensorifyState
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/symbolic_convert.py", line 53, in <module>
-    from torch._dynamo.exc import ObservedException, TensorifyScalarRestartAnalysis
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/exc.py", line 45, in <module>
-    from .utils import counters
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/utils.py", line 2414, in <module>
-    if has_triton_package():
-       ^^^^^^^^^^^^^^^^^^^^
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/utils/_triton.py", line 9, in has_triton_package
-    import triton  # noqa: F401
-    ^^^^^^^^^^^^^
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/triton/__init__.py", line 21, in <module>
-    from .compiler import compile, CompilationError
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/triton/compiler/__init__.py", line 1, in <module>
-    from .compiler import CompiledKernel, ASTSource, compile, make_backend, LazyDict
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/triton/compiler/compiler.py", line 31, in <module>
-    from ..runtime.autotuner import OutOfResources
-  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1136, in _find_and_load_unlocked
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/unittest/mock.py", line 655, in __getattr__
-    raise AttributeError(name)
-AttributeError: __spec__
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/symbolic_convert.py", line 59, in <module>
+    from . import (
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/trace_rules.py", line 58, in <module>
+    from .variables import (
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/variables/__init__.py", line 19, in <module>
+    from .base import VariableTracker
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/variables/base.py", line 26, in <module>
+    from ..guards import GuardBuilder, install_guard
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/guards.py", line 108, in <module>
+    from torch._inductor.utils import IndentedBuffer
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/utils.py", line 64, in <module>
+    from torch._inductor.runtime.hints import DeviceProperties
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/runtime/hints.py", line 40, in <module>
+    import triton.backends.compiler
+ModuleNotFoundError: No module named 'triton.backends'
