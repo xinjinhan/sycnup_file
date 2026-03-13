@@ -1,9 +1,9 @@
 Traceback (most recent call last):
   File "<frozen runpy>", line 198, in _run_module_as_main
   File "<frozen runpy>", line 88, in _run_code
-  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 221, in <module>
+  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 222, in <module>
     main()
-  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 213, in main
+  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 214, in main
     from vllm.entrypoints.cli.main import main as vllm_main
   File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/__init__.py", line 14, in <module>
     import vllm.env_override  # noqa: F401
@@ -14,11 +14,14 @@ Traceback (most recent call last):
     from torch._inductor.codegen.debug_utils import DebugPrinterManager
   File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/codegen/debug_utils.py", line 15, in <module>
     from .multi_kernel import MultiKernel
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/codegen/multi_kernel.py", line 7, in <module>
-    from torch._inductor.ir import MultiTemplateBuffer
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/ir.py", line 139, in <module>
-    triton_version = triton.__version__
-                     ^^^^^^^^^^^^^^^^^^
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/unittest/mock.py", line 655, in __getattr__
-    raise AttributeError(name)
-AttributeError: __version__
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/codegen/multi_kernel.py", line 12, in <module>
+    from ..codecache import code_hash, CodeCacheFuture, get_path, write_atomic
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/codecache.py", line 116, in <module>
+    from .output_code import CompiledFxGraph
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/output_code.py", line 57, in <module>
+    from .runtime.autotune_cache import AutotuneCacheBundler
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/runtime/autotune_cache.py", line 54, in <module>
+    from .triton_compat import Config, HAS_WARP_SPEC
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/runtime/triton_compat.py", line 16, in <module>
+    import triton.language as tl
+ModuleNotFoundError: No module named 'triton.language'
