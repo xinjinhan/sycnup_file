@@ -1,27 +1,11 @@
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 227, in <module>
-    main()
-  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 219, in main
-    from vllm.entrypoints.cli.main import main as vllm_main
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/__init__.py", line 14, in <module>
-    import vllm.env_override  # noqa: F401
-    ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/env_override.py", line 367, in <module>
-    from torch._inductor.codegen.wrapper import PythonWrapperCodegen
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/codegen/wrapper.py", line 26, in <module>
-    from torch._inductor.codegen.debug_utils import DebugPrinterManager
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/codegen/debug_utils.py", line 15, in <module>
-    from .multi_kernel import MultiKernel
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/codegen/multi_kernel.py", line 12, in <module>
-    from ..codecache import code_hash, CodeCacheFuture, get_path, write_atomic
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/codecache.py", line 116, in <module>
-    from .output_code import CompiledFxGraph
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/output_code.py", line 57, in <module>
-    from .runtime.autotune_cache import AutotuneCacheBundler
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/runtime/autotune_cache.py", line 54, in <module>
-    from .triton_compat import Config, HAS_WARP_SPEC
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/runtime/triton_compat.py", line 19, in <module>
-    from triton.runtime.autotuner import OutOfResources
-ModuleNotFoundError: No module named 'triton.runtime.autotuner'
+python -c "
+import os
+os.environ['VLLM_ASCEND_ENABLE_CPU_SIMULATION'] = '1'
+
+from vllm_ascend._cpu_simulation.mock_torch_npu import npu
+print(f'Device Name: {npu.get_device_name()}')
+print(f'SOC Version: {npu.get_soc_version()}')
+print(f'Device Properties: {npu.get_device_properties()}')"
+Device Name: Ascend NPU (Mock)
+SOC Version: 220
+Device Properties: <vllm_ascend._cpu_simulation.mock_torch_npu.MockNPU.get_device_properties.<locals>.MockDeviceProperties object at 0x40001fd34f10>
