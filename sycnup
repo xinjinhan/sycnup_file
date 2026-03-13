@@ -1,9 +1,9 @@
 Traceback (most recent call last):
   File "<frozen runpy>", line 198, in _run_module_as_main
   File "<frozen runpy>", line 88, in _run_code
-  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 222, in <module>
+  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 227, in <module>
     main()
-  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 214, in main
+  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 219, in main
     from vllm.entrypoints.cli.main import main as vllm_main
   File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/__init__.py", line 14, in <module>
     import vllm.env_override  # noqa: F401
@@ -22,6 +22,6 @@ Traceback (most recent call last):
     from .runtime.autotune_cache import AutotuneCacheBundler
   File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/runtime/autotune_cache.py", line 54, in <module>
     from .triton_compat import Config, HAS_WARP_SPEC
-  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/runtime/triton_compat.py", line 16, in <module>
-    import triton.language as tl
-ModuleNotFoundError: No module named 'triton.language'
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/runtime/triton_compat.py", line 19, in <module>
+    from triton.runtime.autotuner import OutOfResources
+ModuleNotFoundError: No module named 'triton.runtime.autotuner'
