@@ -1,9 +1,9 @@
 Traceback (most recent call last):
   File "<frozen runpy>", line 198, in _run_module_as_main
   File "<frozen runpy>", line 88, in _run_code
-  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 199, in <module>
+  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 208, in <module>
     main()
-  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 191, in main
+  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 200, in main
     from vllm.entrypoints.cli.main import main as vllm_main
   File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/__init__.py", line 14, in <module>
     import vllm.env_override  # noqa: F401
@@ -42,4 +42,4 @@ Traceback (most recent call last):
     from torch._inductor.runtime.hints import DeviceProperties
   File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/runtime/hints.py", line 40, in <module>
     import triton.backends.compiler
-ModuleNotFoundError: No module named 'triton.backends'
+ModuleNotFoundError: No module named 'triton.backends.compiler'; 'triton.backends' is not a package
