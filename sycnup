@@ -1,1 +1,51 @@
-ERROR 03-12 21:58:27 [config.py:32] Failed to import Triton kernels. Please make sure your triton version is compatible. Error: No module named 'triton.runtime.cache'; 'triton.runtime' is not a package
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 180, in <module>
+    main()
+  File "/root/x00668643/vllm-ascend/vllm_ascend/cpu_simulation/bootstrap.py", line 172, in main
+    from vllm.entrypoints.cli.main import main as vllm_main
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/__init__.py", line 14, in <module>
+    import vllm.env_override  # noqa: F401
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/vllm/env_override.py", line 24, in <module>
+    torch._inductor.config.compile_threads = 1
+    ^^^^^^^^^^^^^^^
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/__init__.py", line 2755, in __getattr__
+    return importlib.import_module(f".{name}", __name__)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/__init__.py", line 11, in <module>
+    from .standalone_compile import CompiledArtifact  # noqa: TC001
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_inductor/standalone_compile.py", line 12, in <module>
+    from torch._dynamo.utils import dynamo_timed
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/__init__.py", line 13, in <module>
+    from . import (
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/aot_compile.py", line 15, in <module>
+    from . import convert_frame
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/convert_frame.py", line 57, in <module>
+    from torch._dynamo.symbolic_convert import TensorifyState
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/symbolic_convert.py", line 53, in <module>
+    from torch._dynamo.exc import ObservedException, TensorifyScalarRestartAnalysis
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/exc.py", line 45, in <module>
+    from .utils import counters
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/_dynamo/utils.py", line 2414, in <module>
+    if has_triton_package():
+       ^^^^^^^^^^^^^^^^^^^^
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/torch/utils/_triton.py", line 9, in has_triton_package
+    import triton  # noqa: F401
+    ^^^^^^^^^^^^^
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/triton/__init__.py", line 21, in <module>
+    from .compiler import compile, CompilationError
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/triton/compiler/__init__.py", line 1, in <module>
+    from .compiler import CompiledKernel, ASTSource, compile, make_backend, LazyDict
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/site-packages/triton/compiler/compiler.py", line 31, in <module>
+    from ..runtime.autotuner import OutOfResources
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1136, in _find_and_load_unlocked
+  File "/root/anaconda3/envs/mock_py311/lib/python3.11/unittest/mock.py", line 655, in __getattr__
+    raise AttributeError(name)
+AttributeError: __spec__
